@@ -1,21 +1,27 @@
 import styled from 'styled-components';
 
+interface IBannerProps {
+  bannerHeight?: string;
+  theme: any;
+}
 
-const StripesBackgroundStyles = styled.div(({ theme }) => `
+const StripesBackgroundStyled = styled.div<IBannerProps>((props) =>`
   background: repeating-linear-gradient(
     -55deg,
-    ${theme.colors.white}30,
-    ${theme.colors.white}30 40px,
-    ${theme.colors.red}30 40px,
-    ${theme.colors.red}30 80px
+    ${props.theme.colors.white},
+    ${props.theme.colors.white} 80px,
+    ${props.theme.colors.red} 80px,
+    ${props.theme.colors.red} 160px
   );
+  height: ${props.bannerHeight || '5px'};
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `);
 
 function Banner() {
   return (
-    <StripesBackgroundStyles>
-      <h1>DALE DALE MONTANINA</h1>
-    </StripesBackgroundStyles>
+    <StripesBackgroundStyled />
   );
 }
 
