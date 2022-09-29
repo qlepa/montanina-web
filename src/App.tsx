@@ -2,6 +2,7 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import './App.css';
 import Banner from './components/banner';
+import MatchBar from './components/matchbar';
 import Navbar from './components/navbar';
 import GlobalStyle from './globalStyles';
 import { theme } from './theme';
@@ -11,7 +12,12 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Banner></Banner>
-      <Navbar></Navbar>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%", height: "200vh" }}>
+        <div style={{ position: "fixed", top: "5px" }}>
+          <Navbar></Navbar>
+          <MatchBar></MatchBar>
+        </div>
+      </div>
     </ThemeProvider>
   );
 }
