@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { Link } from "react-scroll";
 import { useScrollPosition } from "../hooks/useScrollPosition";
 
 function Navbar() {
@@ -15,14 +16,18 @@ function Navbar() {
         <h1>ASD POLISPORTIVA <br /> MONTANINA</h1>
       </LogoContainer>
       <NavMenuItemContainer>
-        <NavMenuItem>Squadra</NavMenuItem>
-        <NavMenuItem>Storia</NavMenuItem>
+        <NavMenuItem>
+          <NavMenuLink to='team' spy={true} smooth={true} offset={50} duration={500}>Squadra</NavMenuLink>
+        </NavMenuItem>
+        <NavMenuItem>
+          Storia
+        </NavMenuItem>
         <NavMenuItem>Kalendarz</NavMenuItem>
       </NavMenuItemContainer>
       <NavNextMatch>
         <Test shrunk={isShrunk}>
           <Logo src={require('../assets/logo.jpg')} />
-          Next Match
+            Next Match
           <Logo src={require('../assets/logo.jpg')} />
         </Test>
       </NavNextMatch>
@@ -75,6 +80,10 @@ const NavMenuItemContainer = styled.ul`
 
 const NavMenuItem = styled.li`
   text-decoration: none;
+`;
+
+const NavMenuLink = styled(Link)`
+  
 `;
 
 const NavNextMatch = styled.div`

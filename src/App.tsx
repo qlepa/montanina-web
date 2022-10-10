@@ -18,6 +18,9 @@ function App() {
           <MatchBar></MatchBar>
         </div>
       </div>
+      <div id="team" style={{ height: '100vh', backgroundColor: 'red' }}>
+        TEST Team
+      </div>
     </ThemeProvider>
   );
 }
